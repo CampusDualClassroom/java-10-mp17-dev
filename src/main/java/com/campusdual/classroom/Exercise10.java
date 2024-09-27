@@ -1,5 +1,6 @@
 package com.campusdual.classroom;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Exercise10 {
@@ -9,6 +10,14 @@ public class Exercise10 {
     // El mensaje a imprimir es → La bola es de color: COLOR_BOLA
     // COLOR_BOLA puede ser → rojo, azul, verde
     public static void main(String[] args) {
+        int counter = 0;
+        while (counter < 2) {
+            String random = getBall();
+            if (random.equals("azul")) {
+                counter++;
+            }
+            System.out.println("La bola es de color: " + random);
+        }
 
     }
 
@@ -20,7 +29,15 @@ public class Exercise10 {
     // 2 → azul
     // 3 → verde
     public static String getBall() {
-        return null;
+        int num = randomWithRange(1, 4);
+        if (num == 1) {
+            return "rojo";
+        } else if (num == 2) {
+            return "azul";
+        } else if (num == 3) {
+            return "verde";
+        }
+        return "";
     }
 
     public static int randomWithRange(int min, int max) {
